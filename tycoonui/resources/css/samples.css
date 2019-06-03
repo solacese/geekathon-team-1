@@ -1,0 +1,85 @@
+h1, h2, h3, p { 
+  color: white;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+textarea {
+    color: lightgrey;
+    font-size: 8;
+    background:   rgb(100, 100, 100);
+    border-color: rgb(100, 100, 100);
+    box-shadow: none;
+}
+
+input {
+    color:black;
+}
+
+input[type="text"][enabled] {
+  color:blue;
+  #background: blue;
+}
+
+input[type="text"][disabled] {
+  color:yellow;
+  background: lightgrey;
+}
+
+input:disabled {
+  colr: blue;
+}
+
+
+input[type="button"]:disabled{
+    color:red;
+}
+
+body {
+    font-family:      HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11;
+    margin:           0px;
+    background-color:            rgb(100, 100, 100);
+}
+
+.logo img {
+    width:            144px;
+    height:           72px;
+    margin-left:      10px;
+}
+
+.banner {
+    color:            white;
+    background-color: black;
+    #padding:          8px;
+}
+
+.banner-interior {
+}
+
+.banner-heading {
+    font-weight:      bold;
+    font-size:        185%;
+    margin:           35px 0px 0px 40px;
+    display:          inline-block;
+    vertical-align:   top;
+}
+
+.doc-body {
+    padding:          30px;
+    max-width:        1000px;
+    margin:           auto;
+    color:            rgb(200, 200, 200);
+}
+
+.button-error {
+    color:            white;
+    background:       rgb(221, 66, 66);
+}
+
+label {
+    margin-right:     15px;
+}

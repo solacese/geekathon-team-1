@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+    
+      http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+
+<!--
+    Solace Web Messaging API for JavaScript
+    PublishSubscribe tutorial - Topic Publisher
+    Demonstrates publishing direct messages to a topic
+-->
+
+<html lang="en">
+
+  <title>Tycoon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+    <meta charset="utf-8"/>
+    
+    <link rel="stylesheet" type="text/css" href="resources/css/pure.css"></link>
+    <link rel="stylesheet" type="text/css" href="resources/css/samples.css"></link>
+    
+    <!-- Load Solace Web Messaging API for JavaScript -->
+    <!-- <script src="../../../lib/solclient-debug.js"></script> -->
+    <script src="/lib/solclient-debug.js"></script>
+
+    <!-- Load the PublishSubscribe Topic Publisher tutorial -->
+    <!--<script src="TopicPublisher.js"></script> -->
+    <script src="js/positron.js"></script>
+
+    <!-- Execute the PublishSubscribe Topic Publisher tutorial -->
+    <script>
+      //var publisher = null;
+      window.onload = function () {
+        // Initialize factory with the most recent API defaults
+        var factoryProps = new solace.SolclientFactoryProperties();
+        factoryProps.profile = solace.SolclientFactoryProfiles.version10;
+        solace.SolclientFactory.init(factoryProps);
+        // enable logging to JavaScript console at WARN level
+        // NOTICE: works only with "solclientjs-debug.js"
+        solace.SolclientFactory.setLogLevel(solace.LogLevel.WARN);
+        // create the publisher, specifying name of the subscription topic
+        //var req_topic = 'web/request/' +  document.getElementById("cc").value
+        var req_topic = 'team1/request/'
+	CreateSession();
+	//SubscribeResponseTopic();
+
+        //publisher = new TopicPublisher(req_topic); 
+	//publisher.connect();
+        // assign buttons to the publisher functions
+        //document.getElementById("connect").addEventListener("click", publisher.connect);
+        //document.getElementById("disconnect").addEventListener("click", publisher.disconnect);
+        //document.getElementById("publish").addEventListener("click", publisher.publish);
+        document.getElementById("do_register").addEventListener("click", DoRegister);
+        document.getElementById("do_buy").addEventListener("click", DoBuy);
+        document.getElementById("do_sell").addEventListener("click", DoSell);
+        document.getElementById("do_check").addEventListener("click", DoCheck);
+        document.getElementById("do_exit").addEventListener("click", DoScore);
+        //document.getElementById("out_balance").disabled = true;
+        document.getElementById("do_buy").disabled = true;
+        document.getElementById("do_sell").disabled = true;
+        document.getElementById("do_check").disabled = true;
+        document.getElementById("do_exit").disabled = true;
+
+        //document.getElementById("do_something").addEventListener("click", Payment);
+      };
+      function iframeloaded(){
+        //if (publisher) {
+        //  publisher.connectToSolace();
+        //}
+      };
+    </script>
+    <style>
+        .warning {
+            padding: 5px; 
+            border: 1px solid black; 
+            background-color: #ff8;
+        }
+        .ie11 {
+            /* Hide instructions that only apply to IE11/Edge */
+            display: none; 
+        }
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            .ie11 {
+                /* Show instructions in IE11. If you're trying this sample from the local filesystem,
+                   it's easy to miss the prompt at the bottom of the window. */
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+
+  <body>
+    <!-- used to prompt selection of client certificate -->
+    <iframe id="iframe" src="" onload="iframeloaded()" hidden></iframe>
+    <div class="banner">
+      <div class="banner-interior">
+<!--
+        <span class="logo">
+            <img src="resources/images/aim.png"/>
+        </span>
+-->
+        <div class="banner-heading">
+            <img src="resources/images/title.png"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-body">
+<!--
+    <h2>Position Tracker</h2>
+    <h3>GeekFest 2019 Team1</h3>
+-->
+       <!--[if IE]>
+           <div class="ie9 warning" style="padding: 5px; border: 1px solid black; background-color: #ff8;">
+               IE9 only: If you are running this sample from the local filesystem, click the "Allow blocked content" button
+               in the popup below to enable JavaScript.
+           </div>
+       <![endif]-->
+       <div class="ie11 warning">
+           IE 11 only: If you are running this sample from the local filesystem, click the "Allow blocked content" button
+           in the popup below to enable JavaScript.
+       </div>
+
+      <form name="form1" class="pure-form pure-form-aligned">
+        <fieldset>
+
+          <div class="pure-control-group">
+            <label for="in_name">Name</label>
+            <input id="in_name" type="text" value="John Doe">
+            <button type="button" class="pure-button pure-button-primary" id="do_register">Connect</button>
+          </div>
+          <div class="pure-control-group">
+            <label for="in_name">Balance</label>
+            <input id="out_balance" type="text" value="Connect for Balance">
+            <!--<textarea id="out_balance" rows="1" cols="10" defaultValue="0" readOnly=True></textarea> -->
+          </div>
+
+
+          <div class="pure-control-group">
+            <label for="in_inst">Instrument</label>
+	    <!--
+            <input id="in_inst" type="text" value="TATA" onkeyup="this.value = this.value.toUpperCase();">
+	    -->
+		<select id="in_inst" name="Instrument">
+		  <option value="AIRT">Airtel</option>
+		  <option value="DELL">Dell</option>
+		  <option value="IBM">IBM</option>
+		  <option value="ORCL">Oracle</option>
+		  <option value="MSFT">Microsoft</option>
+		  <option value="SOLX" selected>Solace</option>
+		  <option value="SAP">SAP</option>
+		  <option value="SING">Singtel</option>
+		  <option value="TATA">Tata</option>
+		  <option value="TOYT">Oracle</option>
+		</select>
+          </div>
+
+          <div class="pure-control-group">
+            <label for="in_num">Quantity</label>
+            <input id="in_num" cols=20 type="number" value="100">
+          </div>
+
+        </fieldset>
+        <p>
+          <button type="button" class="pure-button pure-button-primary" id="do_buy">Buy</button>
+          <button type="button" class="pure-button pure-button-primary" id="do_sell">Sell</button>
+          <button type="button" class="pure-button pure-button-secondary" id="do_check">Check</button>
+          <button type="button" class="pure-button button-error" id="do_exit">Done</button>
+<!--
+          <button type="button" class="pure-button button-error" id="paycnp">Pay CNP</button>
+          <button type="button" class="pure-button button-error" id="payp2p">Pay P2P</button>
+-->
+        </p>
+	<!--
+        <p>
+          <button type="button" class="pure-button pure-button-primary" id="publish">Publish Message</button>
+        </p>
+	-->
+        
+	<p>
+        <textarea id="out_info" rows="10" cols="35" autofocus></textarea>
+	</p>
+        
+      </form>
+
+    </div>
+
+  </body>
+
+</html>

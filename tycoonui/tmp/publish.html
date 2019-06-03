@@ -1,0 +1,68 @@
+<html>
+   <head>
+    <link rel="stylesheet" type="text/css" href="css/publish.css">
+    <script type="text/javascript" src="lib/solclient.js"></script>
+    <script type="text/javascript" src="js/publish.js"></script>
+   </head>
+   
+   <body>
+     <h1>Publish message to Solace</h1>
+     <hr>
+     <table>
+     <tr>
+     <td width="70%">
+     <p><h3>Create session and connect</h3></p>
+      <form name="connectform">
+         <table>
+	 <tr><td>URL</td>
+<!-- <td> <input id="url" size="40" type="text" name="URL"  value="http://192.168.56.104:88/solace"></td></tr> -->
+	     <td> <input id="url" size="40" type="text" name="URL"  value="http://54.193.118.59:80/solace"></td></tr>
+	 <tr><td>VPN</td>
+	     <td> <input id="vpnname" type="text" name="URL"  value="default"></td></tr>
+	 <tr><td>User</td>
+	     <td><input id="username" type="text" value="default"></td></tr>
+	 <tr><td>Password</td>
+	     <td><input id="password" type="text" value="default"></tr>
+         </table>
+         <input id="connectBtn" type="button" value="Connect" onclick="CreateSession();" />
+      </form>
+      </td>
+
+     <td>
+     <p><h3>Publish a message</h3></p>
+      <form name="publishform">
+         <table>
+	 <tr><td>Topic</td>
+         <td><input id="topicname" size="40" type="text" value="topic1"></td></tr>
+	 <tr><td>Message</td>
+         <td><input id="message" size="40" type="text" value="Hello World"></td></tr>
+         </table>
+         <input id="publishBtn" disabled type="button" value="Publish" onclick="PublishMsg();" />
+      </form>
+
+     <p><h3>Close Session</h3></p>
+      <form name="closeform">
+         <input id="closeBtn" disabled type="button" value="Close" onclick="CloseSession();" />
+      </form>
+     </td>
+
+     <tr>
+     <td align="left" valign="top">
+      <p><h3>Console<h3> </p>
+      <form name="outform">
+      <textarea name="outtext" nrows="10" cols="24"></textarea>
+      <br>
+      <input id="clearBtn" type="button" value="Clear" onclick="ClearConsole();" />
+      </form>
+     </td>
+     </tr>
+     <table>
+     <hr>
+     <li> Enter conneciton details and click Connect. Once connected, this option will be disabled until session is closed</li>
+     <li> Once connected, enter topicName and press Publish. This can be done multiple times</li>
+     <li> Press Close to destroy the session. Once disconnected, session can be reopened with Connect again</li>
+     <li> Publish and Close not allowed unless connected </li>
+     <li> Session logs and events are appened to Console window. Press Clear to clear the console output </li>
+   </body>
+   
+</html>

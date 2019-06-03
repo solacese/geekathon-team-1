@@ -1,0 +1,114 @@
+body {
+    background-color: lightsteelblue;
+}
+
+textarea
+{
+resize: none;
+overflow-y: scroll;
+height:300px;
+width:600px;
+}
+
+.button {
+	display: block;
+	height: 100px;
+	width: 300px;
+	background: #34696f;
+	border: 2px solid rgba(33, 68, 72, 0.59);
+}
+
+#connectBtn {
+    background-color: steelblue;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+#connectBtn:hover {
+    border: none;
+    background: blue;
+    box-shadow: 0px 0px 1px #777;
+}
+#connectBtn:disabled {
+    border: none;
+    background: gray;
+    box-shadow: 0px 0px 1px #777;
+
+}
+
+#PublishBtn {
+    background-color: steelblue;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+#PublishBtn:hover {
+    border: none;
+    background: blue;
+    box-shadow: 0px 0px 1px #777;
+}
+#PublishBtn:disabled {
+    border: none;
+    background: gray;
+    box-shadow: 0px 0px 1px #777;
+}
+
+#CloseBtn {
+    background-color: steelblue;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+#CloseBtn:hover {
+    border: none;
+    background: blue;
+    box-shadow: 0px 0px 1px #777;
+}
+#CloseBtn:disabled {
+    border: none;
+    background: gray;
+    box-shadow: 0px 0px 1px #777;
+}
+#clearBtn {
+    background-color: steelblue;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+#clearBtn:hover {
+    border: none;
+    background: blue;
+    box-shadow: 0px 0px 1px #777;
+}
+#clearBtn:disabled {
+    border: none;
+    background: gray;
+    box-shadow: 0px 0px 1px #777;
+
+}

@@ -1,0 +1,71 @@
+<html>
+   <head>
+    <link rel="stylesheet" type="text/css" href="css/subscribe.css">
+    <script type="text/javascript" src="lib/solclient.js"></script>
+    <script type="text/javascript" src="js/subscribe.js"></script>
+   </head>
+   
+   <body>
+     <h1>Subscribe message from Solace</h1>
+     <hr>
+     <table>
+     <tr>
+     <td width="70%">
+     <p><h3>Create session and connect</h3></p>
+      <form name="connectform">
+         <table>
+	 <tr><td>URL</td>
+	     <td> <input id="url" size="40" type="text" name="URL"  value="http://192.168.56.104:88/solace"></td></tr>
+	 <tr><td>VPN</td>
+	     <td> <input id="vpnname" type="text" name="URL"  value="default"></td></tr>
+	 <tr><td>User</td>
+	     <td><input id="username" type="text" value="default"></td></tr>
+	 <tr><td>Password</td>
+	     <td><input id="password" type="text" value="default"></tr>
+         </table>
+         <input id="connectBtn" type="button" value="Connect" onclick="CreateSession();" />
+      </form>
+      </td>
+
+     <td>
+     <p><h3>Subscribe to topic</h3></p>
+      <form name="subsrcibeform">
+         Topic: <input id="topicname" size="40" type="text" value="topic1"><br><br>
+         Timeout (sec): <input id="timeout" size="40" type="int" value="60"><br><br>
+         <input id="subscribeBtn" disabled type="button" value="Subsrcibe" onclick="SubscribeMsg();" />
+      </form>
+
+     <p><h3>Close Session</h3></p>
+      <form name="closeform">
+         <input id="closeBtn" disabled type="button" value="Close" onclick="CloseSession();" />
+      </form>
+
+     </td>
+     </tr>
+
+     <tr>
+     <td align="left" valign="top">
+      <p><h3>Console<h3> </p>
+      <form name="console_area">
+      <textarea name="outtext" nrows="10" cols="24"></textarea>
+      <br>
+      <input id="ClearBtn" type="button" value="Clear" onclick="ClearConsole();" />
+      </form>
+     </td>
+     <td align="left" valign="top">
+      <p><h3>Messages<h3> </p>
+      <form name="message_area">
+      <textarea name="outtext" nrows="10" cols="42"></textarea>
+      </form>
+     </td>
+     </tr>
+     <table>
+     <hr>
+     <li> Enter conneciton details and click Connect. Once connected, this option will be disabled until session is closed</li>
+     <li> Once connected, enter topicName and press Subscribe</li>
+     <li> Press Close to destroy the session. Once disconnected, session can be reopened with Connect again</li>
+     <li> Subscribe and Close not allowed unless connected </li>
+     <li> Session logs, events and messages are appened to Console window. Press Clear to clear the console output </li>
+   </body>
+   
+</html>
