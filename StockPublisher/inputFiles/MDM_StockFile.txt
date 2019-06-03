@@ -1,0 +1,10 @@
+Tata Steel Ltd,Tata,usd
+Infosys Limited,INFY,INR
+Reliance Industries Limited,RELIANCE,USD
+Oil & Natural Gas Corporation Limited,ONGC,INR
+Tata Consultancy Services Limited,TCS,INR
+Bharti Airtel Limited,BHARTIARTL,USD
+Titan Company Limited,TITAN,USD
+NTPC Limited,NTPC,INR
+Wipro Limited,WIPRO,INR
+Britannia Industries Limited,BRITANNIA,INR
